@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Frontend Testing at Purplebricks</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://www.purplebricks.co.uk/">
+						<img src="https://pbonlineassets.azureedge.net/web-images/marketing-global/logos/pb-logo-light.svg" alt="Purplebricks logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>Testing Frontend Applications</h3>
+					<p>
+						<small>Created by <a href="https://www.linkedin.com/in/hugh-loughrey-msc-a84ab84b/">Hugh Loughrey</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hello There</h2>
+					<ul>
+						<li>Senior Frontend Engineer @ Purplebricks</li>
+						<li>Advocate for improved testing</li>
+					</ul>
+				</section>
+
+				<section id="fragments">
+					<h2>Why test?</h2>
+					<ul>
+						<li class="fragment">Confidence in our code;</li>
+						<li class="fragment">Permanently fix bugs;</li>
+						<li class="fragment">Safety net while refactoring;</li>
+						<li class="fragment">Fast feedback;</li>
+						<li class="fragment">Living documentation;</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Journey</h2>
+					<p>Not the complete package yet....but we're maturing</p>
+				</section>
+
+				<section>
+					<h2>Types of Tests</h2>
+					<section>
+						<h3>Static Analysis</h3>
+						<table>
+							<tr>
+								<th>Tooling</th>
+								<td>Prettier, ESLint & Stylelint</td>
+							</tr>
+							<tr>
+								<th>Responsbility</th>
+								<td>Frontend Devs</td>
+							</tr>
+							<tr>
+								<th>Run Time</th>
+								<td>During development, PR creation & merge into master</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Unit Tests</h3>
+						<table>
+							<tr>
+								<th>Tooling</th>
+								<td>Jest, React Testing Library</td>
+							</tr>
+							<tr>
+								<th>Responsbility</th>
+								<td>Frontend Devs</td>
+							</tr>
+							<tr>
+								<th>Run Time</th>
+								<td>During development, PR creation & merge into master</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Shallow Integration</h3>
+						<table>
+							<tr>
+								<th>Tooling</th>
+								<td>Cypress</td>
+							</tr>
+							<tr>
+								<th>Responsbility</th>
+								<td>Frontend Devs</td>
+							</tr>
+							<tr>
+								<th>Run Time</th>
+								<td>During PR creation & merge into master</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>End-to-End</h3>
+						<table>
+							<tr>
+								<th>Tooling</th>
+								<td>Selenium, Cypress</td>
+							</tr>
+							<tr>
+								<th>Responsbility</th>
+								<td>Automated QA</td>
+							</tr>
+							<tr>
+								<th>Run Time</th>
+								<td>Overnight against QA</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Exploratory</h3>
+						<table>
+							<tr>
+								<th>Tooling</th>
+								<td>Humans</td>
+							</tr>
+							<tr>
+								<th>Responsbility</th>
+								<td>Manual QA (Everyone)</td>
+							</tr>
+							<tr>
+								<th>Run Time</th>
+								<td>On Docker, QA & Production</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+			<section>
+				<h2>Resources</h2>
+				<ul>
+					<li><a href='http://www.growingagile.co.za/2015/04/the-testing-manifesto/' target="_blank">The Testing Manifesto</a></li>
+					<li><a href='https://revealjs.com' target="_blank">Reveal.js</a></li>
+				</ul>
+			</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
