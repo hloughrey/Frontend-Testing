@@ -19,14 +19,18 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="dist/reset.css" />
-        <link rel="stylesheet" href="dist/reveal.css" />
-        <link rel="stylesheet" href="dist/theme/serif.css" id="theme" />
+        <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+        <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+        <link
+            rel="stylesheet"
+            href="reveal.js/dist/theme/serif.css"
+            id="theme"
+        />
 
         <!-- Theme used for syntax highlighting of code -->
         <link
             rel="stylesheet"
-            href="plugin/highlight/monokai.css"
+            href="reveal.js/plugin/highlight/monokai.css"
             id="highlight-theme"
         />
     </head>
@@ -39,7 +43,7 @@
                     <a href="https://www.purplebricks.co.uk/">
                         <img
                             src="https://pbonlineassets.azureedge.net/web-images/marketing-global/logos/pb-logo-dark.svg"
-                            alt="Purplebricks logo"
+                            alt="Profile Picture"
                             style="
                                 height: 180px;
                                 margin: 0 auto 4rem auto;
@@ -528,12 +532,12 @@
             </div>
         </div>
 
-        <script src="dist/reveal.js"></script>
-        <script src="plugin/zoom/zoom.js"></script>
-        <script src="plugin/notes/notes.js"></script>
-        <script src="plugin/search/search.js"></script>
-        <script src="plugin/markdown/markdown.js"></script>
-        <script src="plugin/highlight/highlight.js"></script>
+        <script src="reveal.js/dist/reveal.js"></script>
+        <script src="reveal.js/plugin/zoom/zoom.js"></script>
+        <script src="reveal.js/plugin/notes/notes.js"></script>
+        <script src="reveal.js/plugin/search/search.js"></script>
+        <script src="reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="reveal.js/plugin/highlight/highlight.js"></script>
         <script>
             // Also available as an ES module, see:
             // https://revealjs.com/initialization/
@@ -552,6 +556,8 @@
                     RevealHighlight,
                 ],
             });
+
+            Reveal.configure({ pdfSeparateFragments: false });
         </script>
     </body>
 </html>
