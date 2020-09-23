@@ -1,8 +1,8 @@
 {
-  "name": "reveal.js",
-  "version": "4.0.2",
-  "description": "How Purplebricks tests Frontend Code",
-  "homepage": "",
+  "name": "frontend-testing",
+  "version": "1.0.0",
+  "description": "Presentation on Testing Frontend Applications",
+  "homepage": "https://happy-johnson-411f8c.netlify.app/#/",
   "license": "MIT",
   "scripts": {
     "dev": "live-server"
@@ -15,15 +15,7 @@
     "type": "git",
     "url": "https://github.com/hloughrey/Frontend-Testing.git"
   },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "keywords": [
-    "testing",
-    "slides",
-    "presentation"
-  ],
   "devDependencies": {
-    "live-server": "^1.2.1"
+    "live-server": "1.2.1"
   }
 }
