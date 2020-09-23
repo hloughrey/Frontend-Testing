@@ -1,186 +1,537 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
 
-	<head>
-		<meta charset="utf-8">
+        <title>Frontend Testing at Purplebricks</title>
 
-		<title>Frontend Testing at Purplebricks</title>
+        <meta
+            name="description"
+            content="A presentation on how Purplebricks currently tests Frontend Applications"
+        />
+        <meta name="author" content="Hugh Loughrey" />
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dist/reset.css" />
+        <link rel="stylesheet" href="dist/reveal.css" />
+        <link rel="stylesheet" href="dist/theme/serif.css" id="theme" />
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+        <!-- Theme used for syntax highlighting of code -->
+        <link
+            rel="stylesheet"
+            href="plugin/highlight/monokai.css"
+            id="highlight-theme"
+        />
+    </head>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <a href="https://www.purplebricks.co.uk/">
+                        <img
+                            src="https://pbonlineassets.azureedge.net/web-images/marketing-global/logos/pb-logo-dark.svg"
+                            alt="Purplebricks logo"
+                            style="
+                                height: 180px;
+                                margin: 0 auto 4rem auto;
+                                background: transparent;
+                            "
+                            class="demo-logo"
+                        />
+                    </a>
+                    <h3>Testing Frontend Applications</h3>
+                    <p>
+                        <small
+                            >Created by
+                            <a
+                                href="https://www.linkedin.com/in/hugh-loughrey-msc-a84ab84b/"
+                            >
+                                Hugh Loughrey
+                            </a></small
+                        >
+                    </p>
+                </section>
 
-	<body>
+                <section>
+                    <h2>Hello There</h2>
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        "
+                    >
+                        <img
+                            src="./images/profile.png"
+                            alt="Purplebricks logo"
+                            style="height: 250px; margin: 0 1rem 0 0"
+                            class="demo-logo"
+                        />
+                        <ul>
+                            <li>Senior Frontend Engineer</li>
+                            <li>Automated testing advocate</li>
+                        </ul>
+                    </div>
+                </section>
 
-		<div class="reveal">
+                <section id="fragments">
+                    <h2>Brief History</h2>
+                    <img
+                        src="./images/TestingTimeline.svg"
+                        alt="Testing Timeline"
+                        style="height: 25rem"
+                    />
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<a href="https://www.purplebricks.co.uk/">
-						<img src="https://pbonlineassets.azureedge.net/web-images/marketing-global/logos/pb-logo-light.svg" alt="Purplebricks logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-					</a>
-					<h3>Testing Frontend Applications</h3>
-					<p>
-						<small>Created by <a href="https://www.linkedin.com/in/hugh-loughrey-msc-a84ab84b/">Hugh Loughrey</a></small>
-					</p>
-				</section>
+                    <p class="fragment fade-in">
+                        Not the complete package yet....but we're maturing
+                    </p>
+                </section>
 
-				<section>
-					<h2>Hello There</h2>
-					<ul>
-						<li>Senior Frontend Engineer @ Purplebricks</li>
-						<li>Advocate for improved testing</li>
-					</ul>
-				</section>
+                <section id="fragments">
+                    <h2>Why test?</h2>
+                    <ul>
+                        <li class="fragment">Confidence in our code;</li>
+                        <li class="fragment">Permanently fix bugs;</li>
+                        <li class="fragment">Safety net while refactoring;</li>
+                        <li class="fragment">Fast feedback;</li>
+                        <li class="fragment">Living documentation;</li>
+                    </ul>
+                </section>
 
-				<section id="fragments">
-					<h2>Why test?</h2>
-					<ul>
-						<li class="fragment">Confidence in our code;</li>
-						<li class="fragment">Permanently fix bugs;</li>
-						<li class="fragment">Safety net while refactoring;</li>
-						<li class="fragment">Fast feedback;</li>
-						<li class="fragment">Living documentation;</li>
-					</ul>
-				</section>
+                <section id="fragments">
+                    <h2>Test Pyramid</h2>
+                    <img
+                        src="./images/test-pyramid.png"
+                        alt="Test Pyramid"
+                        style="height: 25rem"
+                        class="fragment fade-in-then-semi-out"
+                    />
+                    <img
+                        src="./images/test-cone.png"
+                        alt="Test Cone"
+                        style="height: 25rem"
+                        class="fragment fade-in"
+                    />
 
-				<section>
-					<h2>Journey</h2>
-					<p>Not the complete package yet....but we're maturing</p>
-				</section>
+                    <br />
+                    <sub style="font-size: 1.4rem"
+                        >(Adapted from Thoughtworks blog post: Architecting for
+                        Continuous Delivery)</sub
+                    >
 
-				<section>
-					<h2>Types of Tests</h2>
-					<section>
-						<h3>Static Analysis</h3>
-						<table>
-							<tr>
-								<th>Tooling</th>
-								<td>Prettier, ESLint & Stylelint</td>
-							</tr>
-							<tr>
-								<th>Responsbility</th>
-								<td>Frontend Devs</td>
-							</tr>
-							<tr>
-								<th>Run Time</th>
-								<td>During development, PR creation & merge into master</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>Unit Tests</h3>
-						<table>
-							<tr>
-								<th>Tooling</th>
-								<td>Jest, React Testing Library</td>
-							</tr>
-							<tr>
-								<th>Responsbility</th>
-								<td>Frontend Devs</td>
-							</tr>
-							<tr>
-								<th>Run Time</th>
-								<td>During development, PR creation & merge into master</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>Shallow Integration</h3>
-						<table>
-							<tr>
-								<th>Tooling</th>
-								<td>Cypress</td>
-							</tr>
-							<tr>
-								<th>Responsbility</th>
-								<td>Frontend Devs</td>
-							</tr>
-							<tr>
-								<th>Run Time</th>
-								<td>During PR creation & merge into master</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>End-to-End</h3>
-						<table>
-							<tr>
-								<th>Tooling</th>
-								<td>Selenium, Cypress</td>
-							</tr>
-							<tr>
-								<th>Responsbility</th>
-								<td>Automated QA</td>
-							</tr>
-							<tr>
-								<th>Run Time</th>
-								<td>Overnight against QA</td>
-							</tr>
-						</table>
-					</section>
-					<section>
-						<h3>Exploratory</h3>
-						<table>
-							<tr>
-								<th>Tooling</th>
-								<td>Humans</td>
-							</tr>
-							<tr>
-								<th>Responsbility</th>
-								<td>Manual QA (Everyone)</td>
-							</tr>
-							<tr>
-								<th>Run Time</th>
-								<td>On Docker, QA & Production</td>
-							</tr>
-						</table>
-					</section>
-				</section>
-			<section>
-				<h2>Resources</h2>
-				<ul>
-					<li><a href='http://www.growingagile.co.za/2015/04/the-testing-manifesto/' target="_blank">The Testing Manifesto</a></li>
-					<li><a href='https://revealjs.com' target="_blank">Reveal.js</a></li>
-				</ul>
-			</section>
-			</div>
-		</div>
+                    <aside class="notes">
+                        <ul>
+                            <li>We all know we should be aiming for this.</li>
+                            <li>But more often we end up with this.</li>
+                            <li>PB has been on the this journey</li>
+                        </ul>
+                    </aside>
+                </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
+                <section>
+                    <h2>Quality Gates</h2>
+                    <img
+                        src="./images/Pipeline.svg"
+                        alt="Testing Timeline"
+                        style="height: 25rem"
+                    />
+                </section>
 
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+                <section>
+                    <h2>Types of Tests</h2>
+                    <section>
+                        <h3>Static Analysis</h3>
+                        <table>
+                            <tr>
+                                <th>Tooling</th>
+                                <td>Prettier, ESLint & Stylelint</td>
+                            </tr>
+                            <tr>
+                                <th>Responsbility</th>
+                                <td>Everyone</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time</th>
+                                <td>
+                                    During development, PR creation & merge into
+                                    master
+                                </td>
+                            </tr>
+                        </table>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Catch typos and type errors as you write the
+                                    code;
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <video width="700" height="500" controls>
+                            <source
+                                src="./images/Eslint.mov"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </section>
+                    <section>
+                        <h3>Unit Tests</h3>
+                        <table>
+                            <tr>
+                                <th>Tooling</th>
+                                <td>Jest, React Testing Library</td>
+                            </tr>
+                            <tr>
+                                <th>Responsbility</th>
+                                <td>Everyone</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time</th>
+                                <td>
+                                    During development, PR creation & merge into
+                                    master
+                                </td>
+                            </tr>
+                        </table>
 
-		</script>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Verify that individual, isolated parts work
+                                    as expected;
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <video width="700" height="500" controls>
+                            <source
+                                src="./images/UnitTests.mov"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </section>
+                    <section>
+                        <h3>Shallow Integration</h3>
+                        <table>
+                            <tr>
+                                <th>Tooling</th>
+                                <td>Cypress</td>
+                            </tr>
+                            <tr>
+                                <th>Responsbility</th>
+                                <td>Everyone</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time</th>
+                                <td>During PR creation & merge into master</td>
+                            </tr>
+                        </table>
 
-	</body>
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Verify that several units work together;
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <video width="700" height="500" controls>
+                            <source
+                                src="./images/Cypress.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </section>
+                    <section>
+                        <h3>End-to-End</h3>
+                        <table>
+                            <tr>
+                                <th>Tooling</th>
+                                <td>Selenium, Cypress</td>
+                            </tr>
+                            <tr>
+                                <th>Responsbility</th>
+                                <td>Everyone</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time</th>
+                                <td>Overnight against QA</td>
+                            </tr>
+                        </table>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Test that the end-to-end flow works as the
+                                    user expects by clicking around &
+                                    interacting with the site as a user would;
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Exploratory</h3>
+                        <table>
+                            <tr>
+                                <th>Tooling</th>
+                                <td>Humans</td>
+                            </tr>
+                            <tr>
+                                <th>Responsbility</th>
+                                <td>Everyone</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time</th>
+                                <td>On Docker, QA & Production</td>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+
+                <section>
+                    <h2 data-id="code-title">Unit Test Example</h2>
+                    <pre
+                        data-id="code-animation"
+                    ><code class="hljs jsx" data-trim data-line-numbers="3-8|11-23|25-37">
+						<script type="text/template">
+							describe(`MessageCard`, () => {
+							  const mockOnClick = jest.fn();
+							  const partialProperties = setup<TMessageCardProperties>({
+							    title: 'Message Card',
+							    state: 'success',
+							    buttonText: 'Action',
+							    onClick: mockOnClick,
+							  });
+
+							  describe('title', () => {
+							    it('should render the title', () => {
+							      const properties = partialProperties();
+
+							      render(
+							        <ThemeProvider theme={defaultTheme}>
+							          <MessageCard {...properties}>
+							            <p>I'm a paragraph</p>
+							          </MessageCard>
+							        </ThemeProvider>
+							      );
+
+							      expect(screen.getByText('Message Card')).toBeInTheDocument();
+							    });
+
+							    it('should NOT render the title when the title prop is NOT provided', () => {
+							      const properties = partialProperties({ title: undefined });
+
+							      render(
+							        <ThemeProvider theme={defaultTheme}>
+							          <MessageCard {...properties}>
+							            <p>I'm a paragraph</p>
+							          </MessageCard>
+							        </ThemeProvider>
+							      );
+
+							      expect(screen.queryByText('Message Card')).not.toBeInTheDocument();
+							    });
+							  });
+							});
+						</script>
+					</code></pre>
+                </section>
+
+                <section>
+                    <h2 data-id="code-title">Integration Test Example</h2>
+                    <pre
+                        data-id="code-animation"
+                    ><code class="hljs jsx" data-trim data-line-numbers="2-9|13-23|26-35">
+						<script type="text/template">
+							describe('Adding / Removing Products from basket', () => {
+							  beforeEach(() => {
+							    cy.server();
+							    cy.geneticSetup();
+							    cy.visit('/XZ123', {
+							      onBeforeLoad: win => (win.fetch = null),
+							    });
+							    cy.getAddons('SalesDefault');
+							  });
+
+							  it('should add the Product to the basket when the user clicks the plus icon', () => {
+							    // Act
+							    cy.findByTestId('AccompaniedViewings-AddOn').within(() => {
+							      cy.findByTestId('add-item')
+							        .invoke('attr', 'class')
+							        .should('contain', 'icon-add');
+							      cy.findByTestId('add-item')
+							        .children()
+							        .first()
+							        .invoke('attr', 'class')
+							        .should('contain', 'pb-plus');
+							      cy.findByTestId('add-item').click();
+							    });
+
+							    // Assert
+							    cy.findByTestId('AccompaniedViewings-AddOn').within(() => {
+							      cy.findByTestId('remove-item')
+							        .invoke('attr', 'class')
+							        .should('contain', 'icon-remove');
+							      cy.findByTestId('remove-item')
+							        .children()
+							        .first()
+							        .invoke('attr', 'class')
+							        .should('contain', 'pb-minus');
+							    });
+							});
+						</script>
+					</code></pre>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>
+                                Example from Selling Tools
+                                AddingAddOnToBasket.spec.js - `yarn cy:dev`
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Lessions Learnt</h2>
+                    <ul>
+                        <li>Tests should be really easy to understand;</li>
+                        <li>Ensuring Quality is everyone's responsbility;</li>
+                        <li>
+                            Quality gates ensure tests are 1st class citizens;
+                        </li>
+                        <li>Test throughout over testing at the end;</li>
+                    </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>
+                                Tests are not production code - they should be
+                                simple o understand
+                            </li>
+                            <li>
+                                What is being tested? Under what circumstances?
+                                What is the expected result?
+                            </li>
+                            <li>
+                                You should be able to look at a test & instantly
+                                get its intent;
+                            </li>
+                            <li>
+                                Use appropriate DOM selectors to avoid testing
+                                implementation detail;
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <!-- <section>
+                    <h2>Testing as an Activity</h2>
+                    <div style="display: flex; flex-direction: column">
+                        <img
+                            src="./images/AgileManifesto.jpg"
+                            alt="Agile Testing"
+                            style="height: 25rem"
+                        />
+                        <q
+                            cite="http://www.growingagile.co.za/2015/04/the-testing-manifesto"
+                        >
+                            Testing is an activity not a phase
+                        </q>
+                    </div>
+                </section> -->
+
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li>
+                            <a
+                                href="http://www.growingagile.co.za/2015/04/the-testing-manifesto"
+                                target="_blank"
+                            >
+                                The Testing Manifesto
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://kentcdodds.com/blog"
+                                target="_blank"
+                            >
+                                Kent C. Dodds
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements"
+                                target="_blank"
+                            >
+                                Cypress Best Practices
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://github.com/goldbergyoni/javascript-testing-best-practices"
+                                target="_blank"
+                            >
+                                Javascript Testing Best Practices
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.thoughtworks.com/insights/blog/architecting-continuous-delivery"
+                                target="_blank"
+                            >
+                                Architecting for Continuous Delivery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://revealjs.com" target="_blank">
+                                Reveal.js
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <script src="dist/reveal.js"></script>
+        <script src="plugin/zoom/zoom.js"></script>
+        <script src="plugin/notes/notes.js"></script>
+        <script src="plugin/search/search.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
+        <script src="plugin/highlight/highlight.js"></script>
+        <script>
+            // Also available as an ES module, see:
+            // https://revealjs.com/initialization/
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [
+                    RevealZoom,
+                    RevealNotes,
+                    RevealSearch,
+                    RevealMarkdown,
+                    RevealHighlight,
+                ],
+            });
+        </script>
+    </body>
 </html>
