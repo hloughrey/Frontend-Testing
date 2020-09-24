@@ -331,45 +331,45 @@
                         data-id="code-animation"
                     ><code class="hljs jsx" data-trim data-line-numbers="3-8|11-23|25-37">
 						<script type="text/template">
-							describe(`MessageCard`, () => {
-							  const mockOnClick = jest.fn();
-							  const partialProperties = setup<TMessageCardProperties>({
-							    title: 'Message Card',
-							    state: 'success',
-							    buttonText: 'Action',
-							    onClick: mockOnClick,
-							  });
+						  describe(`MessageCard`, () => {
+						    const mockOnClick = jest.fn();
+						    const partialProperties = setup<TMessageCardProperties>({
+						      title: 'Message Card',
+						      state: 'success',
+						      buttonText: 'Action',
+						      onClick: mockOnClick,
+						    });
 
-							  describe('title', () => {
-							    it('should render the title', () => {
-							      const properties = partialProperties();
+						    describe('title', () => {
+						      it('should render the title', () => {
+						        const properties = partialProperties();
 
-							      render(
-							        <ThemeProvider theme={defaultTheme}>
-							          <MessageCard {...properties}>
-							            <p>I'm a paragraph</p>
-							          </MessageCard>
-							        </ThemeProvider>
-							      );
+						        render(
+						          <ThemeProvider theme={defaultTheme}>
+						            <MessageCard {...properties}>
+						             <p>I'm a paragraph</p>
+						            </MessageCard>
+						          </ThemeProvider>
+						        );
 
-							      expect(screen.getByText('Message Card')).toBeInTheDocument();
-							    });
+						        expect(screen.getByText('Message Card')).toBeInTheDocument();
+						      });
 
-							    it('should NOT render the title when the title prop is NOT provided', () => {
-							      const properties = partialProperties({ title: undefined });
+						      it('should NOT render the title when the title prop is NOT provided', () => {
+						        const properties = partialProperties({ title: undefined });
 
-							      render(
-							        <ThemeProvider theme={defaultTheme}>
-							          <MessageCard {...properties}>
-							            <p>I'm a paragraph</p>
-							          </MessageCard>
-							        </ThemeProvider>
-							      );
+						        render(
+						          <ThemeProvider theme={defaultTheme}>
+						            <MessageCard {...properties}>
+						              <p>I'm a paragraph</p>
+						            </MessageCard>
+						          </ThemeProvider>
+						        );
 
-							      expect(screen.queryByText('Message Card')).not.toBeInTheDocument();
-							    });
-							  });
-							});
+						        expect(screen.queryByText('Message Card')).not.toBeInTheDocument();
+						      });
+						    });
+						  });
 						</script>
 					</code></pre>
                 </section>
