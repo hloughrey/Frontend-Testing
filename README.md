@@ -18,4 +18,4 @@ yarn && yarn dev
 
 ### Deploying
 
-This presentation is deployed on [Netlify](https://www.netlify.com/), so just push changes to github & it will automatically deploy [here](https://happy-johnson-411f8c.netlify.app/#/).
+This presentation is deployed on [Netlify](https://www.netlify.com/), so just push changes to github & it will automatically deploy [here](https://testing-frontend-applications.netlify.app/).
